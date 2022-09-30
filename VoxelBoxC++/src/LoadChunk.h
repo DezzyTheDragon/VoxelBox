@@ -13,14 +13,14 @@ class LoadChunk
 private:
 	FlyCamera* player;
 	int renderDistance = 2;
-	//The model of the chunks, vec2 is the chunk coord
+	//The model of the chunks, pair is the chunk coord
 	std::map<std::pair<int, int>, DrawChunk*> activeChunks;
-	//The actual data of the chunks, vec 2 is the chunk coord
-	std::map<std::pair<int, int>, WorldChunkData*> worldData;
 
 	void LoadNewChunks(glm::vec2 chunkCoord);
 	void DeloadChunks(std::pair<int, int> chunkCoord);
 public:
+	//The actual data of the chunks, pair is the chunk coord
+	std::map<std::pair<int, int>, WorldChunkData*> worldData;
 	LoadChunk(FlyCamera* p);
 	~LoadChunk();
 	void CheckActiveChunks();

@@ -224,7 +224,7 @@ int main()
 		glm::mat4 view;
 		view = mainCamera->GetFlyCameraView();
 
-		mainCamera->CastRay();
+		mainCamera->CastRay(chunkLoader->worldData);
 
 		chunkLoader->ShowActiveChunks(view, projection, chunkShader);
 

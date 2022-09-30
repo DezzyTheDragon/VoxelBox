@@ -42,3 +42,11 @@ glm::vec3 VBVector3::ToGlmVec3()
 {
 	return glm::vec3(x, y, z);
 }
+
+void VBVector3::Normalize()
+{
+	float length = sqrt((x * x) + (y * y) + (z * z));
+	x = x / length;
+	y = y / length;
+	z = z / length;
+}

@@ -1,11 +1,14 @@
 #ifndef CAMERA
 #define CAMERA
 
+#include <Gl/glew.h>
 #include <GLFW/glfw3.h>
 #include <glm.hpp>
 #include <gtc/matrix_transform.hpp>
 #include <gtc/type_ptr.hpp>
-
+#include <utility>
+#include <map>
+#include "VoxelBoxStructs.h"
 #include "VoxelBoxUtils/VBRay.h"
 
 
@@ -46,7 +49,7 @@ public:
 	glm::mat4 GetFlyCameraView();
 	glm::vec3 GetCameraPosition();
 	glm::vec2 GetCameraRotation();
-	void CastRay();
+	void CastRay(std::map<std::pair<int, int>, WorldChunkData*> worldDat);
 };
 
 #endif // !CAMERA

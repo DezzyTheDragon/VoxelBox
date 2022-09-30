@@ -8,6 +8,7 @@ void VBRay::calculateDirection(float xRot, float yRot)
 	dir.x = cos(yRotRad) * cos(xRotRad);
 	dir.y = sin(xRotRad);
 	dir.z = sin(yRotRad) * cos(xRotRad);
+	dir.Normalize();
 	direction = dir;
 }
 

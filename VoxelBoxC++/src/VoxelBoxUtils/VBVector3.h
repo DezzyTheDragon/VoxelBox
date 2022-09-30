@@ -22,4 +22,5 @@ public:
 	/// </summary>
 	/// <returns>glm::vec3</returns>
 	glm::vec3 ToGlmVec3();
+	void Normalize();
 };
