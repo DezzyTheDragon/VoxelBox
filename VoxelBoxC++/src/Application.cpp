@@ -48,7 +48,6 @@ void ProcessInput(GLFWwindow* window)
 	}
 }
 
-
 void ImGuiTestWindow(GLFWwindow* window)
 {
 	glm::vec3 camPos = mainCamera->GetCameraPosition();
@@ -182,6 +181,7 @@ int main()
 	Shader chunkShader("BasicBlockShader.vs", "BasicBlockShader.fs");
 
 	LoadChunk* chunkLoader = new LoadChunk(mainCamera);
+	mainCamera->setWorldDataReference(&chunkLoader->worldData);
 
 	//projection matrix to change from 3D into 2D that can be displayed on the screen
 	glm::mat4 projection = glm::mat4(1.0f);
@@ -224,7 +224,7 @@ int main()
 		glm::mat4 view;
 		view = mainCamera->GetFlyCameraView();
 
-		mainCamera->CastRay(chunkLoader->worldData);
+		mainCamera->Update();
 
 		chunkLoader->ShowActiveChunks(view, projection, chunkShader);
 

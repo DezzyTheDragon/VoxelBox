@@ -83,8 +83,9 @@ void LoadChunk::CheckActiveChunks()
 	{
 		for (int y = plrChunkY - renderDistance; y <= plrChunkY + renderDistance; y++)
 		{
-			//Check if the target chunk isn't already loaded
+			//Check if the target chunk isn't already loaded and isn't dirty
 			std::map<std::pair<int, int>, DrawChunk*>::iterator it;
+			
 			std::pair<int, int> find(x, y);
 			it = activeChunks.find(find);
 			if (it == activeChunks.end())
@@ -94,8 +95,18 @@ void LoadChunk::CheckActiveChunks()
 			}
 			else
 			{
-				//Remove still active chunk
-				chunksToRemove.remove(find);
+				std::map<std::pair<int, int>, WorldChunkData*>::iterator dirty;
+				dirty = worldData.find(find);
+				if (dirty->second->chunkDirty == false)
+				{
+					//Remove still active, clean chunk
+					chunksToRemove.remove(find);
+				}
+				else
+				{
+					//clear dirty flag
+					dirty->second->chunkDirty = false;
+				}
 			}
 		}
 	}

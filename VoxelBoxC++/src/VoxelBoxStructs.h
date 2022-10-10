@@ -4,6 +4,14 @@
 struct WorldChunkData
 {
 	short chunkData[16][16][16];
+	bool chunkDirty = false;
+};
+
+struct CameraKeyBindControll
+{
+	bool testButton = false;
+	bool leftClick = false;
+	bool rightClick = false;
 };
 
 struct chunkCluster

@@ -12,6 +12,7 @@
 #include "VoxelBoxUtils/VBRay.h"
 
 
+
 class FlyCamera
 {
 private:
@@ -30,6 +31,7 @@ private:
 	float camYaw;
 	float camPitch;
 
+
 	//Camera controlls
 	float lastX;
 	float lastY;
@@ -40,6 +42,16 @@ private:
 
 	//Ray for interactions
 	VBRay ray;
+
+	//Block data for placing/breaking blocks
+	bool blockInRange = false;
+	std::map<std::pair<int, int>, WorldChunkData*>* worldData = nullptr;
+
+	void handleInput();
+	void breakBlock();
+	void placeBlock();
+	void CastRay(int actionType);
+
 public:
 
 	FlyCamera(GLFWwindow* window, glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f));
@@ -49,7 +61,10 @@ public:
 	glm::mat4 GetFlyCameraView();
 	glm::vec3 GetCameraPosition();
 	glm::vec2 GetCameraRotation();
-	void CastRay(std::map<std::pair<int, int>, WorldChunkData*> worldDat);
+	
+	void Update();
+	void setWorldDataReference(std::map<std::pair<int, int>, WorldChunkData*> *worldDat);
+
 };
 
 #endif // !CAMERA

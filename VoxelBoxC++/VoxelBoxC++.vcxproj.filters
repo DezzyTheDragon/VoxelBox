@@ -176,6 +176,12 @@
     <ClInclude Include="src\VoxelBoxUtils\VBRay.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\VoxelBoxCallbacks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\SimpleShader.vs" />
@@ -184,16 +190,23 @@
     <None Include="shaders\BasicBlockShader.fs" />
     <None Include="shaders\LineShader.vs" />
     <None Include="shaders\LineShader.fs" />
+    <None Include="shaders\TestPointerShader.fs" />
+    <None Include="shaders\TestPointerShader.vs" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="textures\wall.jpg">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="textures\GrassTop.png">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="textures\256Atlas.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="..\VBIcon.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\VBIcon.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="VoxelBoxC++.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>
